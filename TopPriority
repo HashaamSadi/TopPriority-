@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I'm Sorry, Bano</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #ffebee;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .container {
+      max-width: 90%;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: #d32f2f;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 10px;
+      background-color: #d32f2f;
+      color: white;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #b71c1c;
+    }
+
+    .page {
+      display: none;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    .kneeling {
+      width: 100%;
+      max-width: 300px;
+      margin: 0 auto;
+    }
+
+    .kneeling img {
+      width: 100%;
+      height: auto;
+    }
+
+    .stubborn {
+      font-size: 1.2rem;
+      color: #d32f2f;
+      margin-top: 20px;
+    }
+
+    /* Mobile-specific adjustments */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      p {
+        font-size: 0.9rem;
+      }
+
+      button {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+      }
+
+      .kneeling {
+        max-width: 250px;
+      }
+
+      .stubborn {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Page 1: Sorry Message -->
+  <div class="container page active" id="page1">
+    <h1>I'm Sorry, Bano</h1>
+    <p>
+      I know I messed up. I forgot to call you yesterday, and I feel terrible about it. 
+      You mean the world to me, and I never want to make you feel like you're not my priority. 
+      Please forgive me. I promise to do better.
+    </p>
+    <button id="nextButton">Next</button>
+  </div>
+
+  <!-- Page 2: Kneeling with Flowers -->
+  <div class="container page" id="page2">
+    <div class="kneeling">
+      <img src="https://i.imgur.com/3QZQZQz.png" alt="Man kneeling with flowers">
+    </div>
+    <p>
+      I was wrong. I know you're upset, but I want to tell you that it was not intended. 
+      I love you immensely. Please forgive me, my dear Bano ❤️
+    </p>
+    <button id="okayButton">Okay</button>
+    <button id="noButton">No</button>
+  </div>
+
+  <!-- Page 3: Thank You Message -->
+  <div class="container page" id="page3">
+    <h1>Thank You, Bano</h1>
+    <p>
+      Thank you so much for your love and generosity. I'll wait for your text. 
+      I hope you still have my number? 😊
+    </p>
+  </div>
+
+  <!-- Page 4: Stubborn Message -->
+  <div class="container page" id="page4">
+    <p class="stubborn">Stop being so stubborn and try again! 😘</p>
+    <button id="tryAgainButton">Try Again</button>
+  </div>
+
+  <script>
+    const pages = document.querySelectorAll('.page');
+    const nextButton = document.getElementById('nextButton');
+    const okayButton = document.getElementById('okayButton');
+    const noButton = document.getElementById('noButton');
+    const tryAgainButton = document.getElementById('tryAgainButton');
+
+    // Function to show a specific page
+    function showPage(pageId) {
+      pages.forEach(page => page.classList.remove('active'));
+      document.getElementById(pageId).classList.add('active');
+    }
+
+    // Next button (Page 1 -> Page 2)
+    nextButton.addEventListener('click', () => {
+      showPage('page2');
+    });
+
+    // Okay button (Page 2 -> Page 3)
+    okayButton.addEventListener('click', () => {
+      showPage('page3');
+    });
+
+    // No button (Page 2 -> Page 4)
+    noButton.addEventListener('click', () => {
+      showPage('page4');
+    });
+
+    // Try Again button (Page 4 -> Page 1)
+    tryAgainButton.addEventListener('click', () => {
+      showPage('page1');
+    });
+  </script>
+</body>
+</html>
